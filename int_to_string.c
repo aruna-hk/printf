@@ -2,6 +2,7 @@
 /**
 * rev_string - reverse string--*numnumber case
 * @start: pointer to the string literal to operate on--
+* @st_len: string length (start len
 */
 void rev_string(char *start, int st_len)
 {

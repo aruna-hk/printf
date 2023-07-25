@@ -34,12 +34,6 @@ int  _printf(const char *string, ...)
 				str_len++;
 				_putchar(*string);
 			}
-			else if (_isalpha((int) *string) == 0)
-			{
-				string--;
-				str_len++;
-				_putchar(*string);
-			}
 			else
 			{
 				str_variable = check_and_alloc(*string, my_print);

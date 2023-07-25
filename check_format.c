@@ -15,14 +15,14 @@ char *check_and_alloc(char s, va_list l)
 		c = va_arg(l, int);
 		str[0] = c;
 		str[1] = '\0';
-		ptr = malloc(sizeof(char) * (_strlen(str) + 1 ));
+		ptr = malloc(sizeof(char) * (_strlen(str) + 1));
 		_strcpy(ptr, str);
 		return (ptr);
 	}
 	else if (s == 's')
 	{
 		string_ = va_arg(l, char *);
-		ptr = malloc(sizeof(char) * (_strlen(string_) + 1 ));
+		ptr = malloc(sizeof(char) * (_strlen(string_) + 1));
 		if (ptr == NULL)
 			return (NULL);
 		_strcpy(ptr, string_);
