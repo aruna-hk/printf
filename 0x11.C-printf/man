@@ -1,0 +1,11 @@
+_printf 
+description -   prints formated string to standard output
+		its a variadic function takes any number of arguements
+handles the following specifiers
+	%d - inser interger value to the string
+	%s - insert string to the string
+	%c - insert character to the string
+	%i - insert interger to the string
+	%ld - inser long int to the string
+	%f - insert float to the string
+
