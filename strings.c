@@ -50,3 +50,24 @@ int _strcmp(char *s1, char *s2)
 	difference = (int)*s1 - (int)*s2;
 	return (difference);
 }
+/**
+ * _strcat - append string to a string
+ * @dest: -destination string
+ * @src: -source string
+ * Return: pointer to dest
+ */
+void _strcat(char *dest, char *src)
+{
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+}
