@@ -12,7 +12,6 @@ char *uint_to_octal(unsigned int number)
 	if (store_space == NULL)
 		return (NULL);
 	_ptr = store_space;
-
 	while (number > 0)
 	{
 		*store_space = (number % 8) + '0';

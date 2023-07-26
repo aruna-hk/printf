@@ -3,6 +3,8 @@
 #include <stddef.h>
 #include "unistd.h"
 #include <stdarg.h>
+#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 /**
 * struct op - Struct op
@@ -12,7 +14,7 @@
 typedef struct op
 {
 	char *op;
-	int (*f)(char *, va_list);
+	int (*f)(char *,va_list);
 } op_t;
 int (*get_op_func(char s))(char *, va_list);
 int _printf(const char *format, ...);

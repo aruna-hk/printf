@@ -34,5 +34,7 @@ char *check_and_alloc(char s, va_list l)
 		return (uint_to_string(va_arg(l, unsigned int)));
 	else if (s == 'o')
 		return (uint_to_octal(va_arg(l, unsigned int)));
+	else if (s == 'p')
+		return (convert_to_hex(va_arg(l, unsigned long)));
 	return (NULL);
 }
