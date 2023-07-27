@@ -13,6 +13,11 @@ int identifier_b(char *buffer, va_list list)
 
 	if (bit_space == NULL)
 		return (0);
+	if (number == 0)
+	{
+		_strcat(buffer, "0");
+		return (1);
+	}
 
 	while (number != 0)
 	{
