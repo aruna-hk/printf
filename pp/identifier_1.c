@@ -12,9 +12,12 @@ int identifier_d(char *buffer, va_list list)
 	char *to_string;
 
 	n = va_arg(list, int);
+	printf("%s x--content in---------- \n",buffer);
 	to_string = int_to_string(n);
+	printf("%s -----%ld-------- num\n",to_string,strlen(to_string));
 	_strcat(buffer,to_string);
-	free(to_string);	
+	printf("%s -----%ld-------- content AFTER NUM INSERTION\n",buffer,strlen(buffer));
+	free(to_string);
 	return (1);
 }
 /**

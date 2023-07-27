@@ -4,7 +4,7 @@
 * @s: pointer to array of chaacters
 * Return: len-length of the string
 */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 

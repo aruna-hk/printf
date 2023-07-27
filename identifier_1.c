@@ -25,13 +25,17 @@ int identifier_d(char *buffer, va_list list)
 */
 int identifier_c(char *buffer, va_list list)
 {
-	char c;
-	char arr[2];
+	
+	char ar_r[2];
+	char c = va_arg(list, int);
 
-	c = va_arg(list, int);
-	arr[0] = c;
-	arr[1] = '\0';
-	_strcat(buffer, arr);
+	if (c != '\0')
+	{
+		ar_r[0] = c;
+		ar_r[1] ='\0';
+		strcat(buffer, ar_r);
+		return (1);
+	}
 	return (1);
 }
 /**
@@ -44,8 +48,11 @@ int identifier_s(char *buffer, va_list list)
 {
 	char *from = va_arg(list, char *);
 
-	_strcat(buffer, from);
-	return (1);
+	if (from == NULL)
+		_strcat(buffer, "(null)");
+	else
+		_strcat(buffer, from);
+	return (0);
 }
 /**
 * identifier_u - handle octal

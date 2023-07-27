@@ -1,6 +1,7 @@
 #ifndef _3_CALC_H
 #define _3_CALC_H
 #include <stddef.h>
+#include <string.h>
 #include "unistd.h"
 #include <stdarg.h>
 #include <stdlib.h>
@@ -24,7 +25,7 @@ char *_memset(char *s, char b, unsigned int n);
 void change_caps_small(char *point);
 char *hex_convert(unsigned int num);
 void rev_string(char *start, int st_len);
-int _strlen(char *s);
+int _strlen(const char *s);
 void _strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *int_to_string(int num);

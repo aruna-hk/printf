@@ -27,7 +27,7 @@ int (*get_op_func(char s))(char *, va_list)
 
 	while (ops[i].op != NULL)
 	{
-		if (_strcmp(arr_s, ops[i].op) == 0)
+		if (strcmp(arr_s, ops[i].op) == 0)
 		{
 			return (ops[i].f);
 		}

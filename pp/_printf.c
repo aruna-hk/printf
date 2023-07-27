@@ -10,8 +10,7 @@ int _printf(const char *format, ...)
 	va_list print;
 	char ar[2];
 	int (*func_ptr)(char *, va_list);
-	int len;
-
+	unsigned int len;
 	mybuffer[0] = '\0';
 	va_start(print, format);
 	while (*format != '\0')
@@ -24,16 +23,18 @@ int _printf(const char *format, ...)
 			else
 			{
 				func_ptr = get_op_func(*format);
-				if (func_ptr == NULL)
-					continue;
 				func_ptr(mybuffer, print);
+				printf("%s buffer len %ld heree\n",mybuffer,strlen(mybuffer));
 			}
 			format++;
 		}
-		ar[0] = *format;
-		ar[1] = '\0';
-		_strcat(mybuffer, ar);
-		format++;
+		else
+		{
+			ar[0] = *format;
+			ar[1] = '\0';
+			strcat(mybuffer, ar);
+			format++;
+		}
 	}
 	write(1, mybuffer, _strlen(mybuffer));
 	len = _strlen(mybuffer);
