@@ -25,17 +25,18 @@ int identifier_d(char *buffer, va_list list)
 */
 int identifier_c(char *buffer, va_list list)
 {
-	
 	char ar_r[2];
 	char c = va_arg(list, int);
 
-	if (c != '\0')
+	if (c == '\0')
 	{
-		ar_r[0] = c;
-		ar_r[1] ='\0';
-		strcat(buffer, ar_r);
+		_strcat(buffer, "0");
 		return (1);
 	}
+	ar_r[0] = c;
+	ar_r[1] = '\0';
+
+	_strcat(buffer, ar_r);
 	return (1);
 }
 /**
