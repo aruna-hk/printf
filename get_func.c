@@ -19,6 +19,7 @@ int (*get_op_func(char s))(char *, va_list)
 		{"X", identifier_X},
 		{"o", identifier_o},
 		{"p", identifier_p},
+		{"b", identifier_b},
 		{'\0', NULL},
 	};
 

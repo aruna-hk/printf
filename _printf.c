@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	int (*func_ptr)(char *, va_list);
 	unsigned int len;
 
+	mybuffer[0] = '\0';
 	va_start(print, format);
 	while (*format != '\0')
 	{
@@ -27,9 +28,7 @@ int _printf(const char *format, ...)
 			{
 				func_ptr = get_op_func(*format);
 				if (func_ptr == NULL)
-				{
-					exit(0);
-				}
+					exit(1);
 				func_ptr(mybuffer, print);
 			}
 			format++;
