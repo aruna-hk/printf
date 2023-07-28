@@ -1,0 +1,166 @@
+#include <stdlib.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+#include <unistd.h>
+#define BUFFER_SIZE 1024
+/**
+* rev_string - reverse string--*numnumber case
+* @s: pointer to the string literal to operate on--
+*/
+void rev_string(char *start)
+{
+        char swap;
+        int len = strlen(start);
+        char *end = start+ (len - 1);
+
+        while (start < end)
+        {
+                swap = *start;
+                *start = *end;
+                *end = swap;
+                start++;
+                end--;
+        }
+}
+/**
+* int_to_string -- convert interger to string
+* to append to buffer to flush to stdout
+* @*numnum: take *numnumber as arguemen
+*/
+char *int_to_string(int num)
+{
+        int flag;
+
+        if (num < 0)
+        {
+                flag = 1;
+                num = -num;
+        }
+        int i = 0;
+        char store_num[20];
+
+        while (num != 0 && i < 20)
+        {
+                store_num[i] = (num % 10) + '0';
+                num = num / 10;
+                i++;
+        }
+        if (flag == 1)
+        {
+                store_num[i] = '-';
+        }
+        rev_string(store_num);
+//      printf("strlen = %d %s\n",_strlen(store_num),store_num);
+        char *ptr_ss = malloc(sizeof(char) * (strlen(store_num)  + 1));
+        strcpy(ptr_ss,store_num);
+        return (ptr_ss);
+}
+//find _identifier
+/**
+* check_and_alloc - va_arg variable and allocte oit space
+* 
+*/
+char *check_and_alloc(char s, va_list l)
+{
+	char *ptr = NULL;
+        if (s == 'c')
+        {
+                char c = va_arg(l, int);
+                char str[2] = {c, '\0'};
+		ptr = malloc(sizeof(char) * (strlen(str) + 1));
+		if (ptr == NULL)
+			return (NULL);
+		strcpy(ptr,str);
+		return (ptr);
+		
+        }
+        else if(s == 's')
+        {
+                char *string_ = va_arg(l, char *);
+		ptr = malloc(sizeof(char) * (strlen(string_) + 1));
+		if (ptr == NULL)
+			return (NULL);
+                strcpy(ptr,string_);
+		return (ptr);
+        }
+        else if (s == 'd' || s == 'i')
+        {
+                int interger = va_arg(l,int);
+                ptr = int_to_string(interger);
+		if (ptr == NULL)
+			return (NULL);
+		return (ptr);
+        }
+	return (NULL);
+}    
+ 
+//simple print
+int  _printf(char *string, ...)
+{
+	int str_len = 0;
+	va_list my_print;
+	char *str_variable;
+	va_start(my_print,string);
+	char c;
+
+	while (*string != '\0')
+	{
+		if (*string == '%')
+		{
+			string++;
+			c = *string;
+			str_variable = check_and_alloc(c,my_print);
+			str_len+=strlen(str_variable);
+		//	if (str_variable == NULL)
+		//		printf("no such identifier");
+			while (*str_variable != '\0')
+			{
+				write(1,str_variable,1);
+				str_variable++;
+			}
+			string++;
+		}
+		str_len++;
+		write(1,string,1);
+		string++;
+	}
+	va_end(my_print);
+	return (str_len);
+}
+int main(void)
+{
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    /*_printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    _printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");*/
+	
+	return (0);
+}
+

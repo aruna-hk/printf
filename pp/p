@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main (void)
+{
+	int age = 22;
+	int weight = 49;
+	char *sname = "ngenoh";
+	printf("am kiptoo haron % s age %d weight %d letter %c\n",sname,age,weight,'c');
+	return (0);
+}
