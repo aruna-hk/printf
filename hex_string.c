@@ -1,7 +1,6 @@
 #include "main.h"
-char id = 'x';
 /**
-* _memset - function fills the first n bytes destination with char provided
+* _memset - function fills the first n bytes destination with char proved
 * @s:to be filled by b--bytes
 * @b:to fill s
 * @n: bytes to be filled
@@ -32,9 +31,9 @@ void change_caps_small(char *point)
 	{
 		c = *point;
 
-		if (c >= 'a' && c <= 'z')
+		if (c >= 'A' && c <= 'Z')
 		{
-			*point = c + ('a' - 'Z');
+			*point = c + ('a' - 'A');
 		}
 		point++;
 	}
@@ -42,19 +41,15 @@ void change_caps_small(char *point)
 /**
 * hex_convert - changes unsigne int to hex;
 * @num: takes unsgned int
-* @id: character specifier x/X
+* @: character specifier x/X
 * Return: ptr to string of hexadecimal
 */
 char *hex_convert(unsigned int num)
 {
-	int flag_s = 0;
 	char *hex_string;
 	int i, remainder;
 	unsigned int temp = num;
 	int num_digits = 0;
-
-	if ((int) id >= 97 && (int) id <= 122)
-		flag_s = 1;
 
 	do {
 		num_digits++;
@@ -75,12 +70,10 @@ char *hex_convert(unsigned int num)
 		num /= 16;
 	}
 	hex_string[num_digits] = '\0';
-	if (flag_s == 1)
-		change_caps_small(hex_string);
 	return (hex_string);
 }
 /**
-* identifier_x -- handles hexadecimal--
+* entifier_x -- handles hexadecimal--
 * @buffer: destin buffer
 * @list: varible list
 * Return: 1- sucess ,0 -failure
@@ -97,7 +90,7 @@ int identifier_x(char *buffer, va_list list)
 	return (1);
 }
 /**
-* identifier_X - caps hexadecimal
+* entifier_X - caps hexadecimal
 * @buffer: buffer to wite to the scree
 * @list: variable lis
 * Return: 1 -sucess 0- failure
@@ -107,7 +100,6 @@ int identifier_X(char *buffer, va_list list)
 	char *p_str;
 	unsigned int _caps;
 
-	id = 'X';
 	_caps = va_arg(list, unsigned int);
 	p_str = hex_convert(_caps);
 	_strcat(buffer, p_str);

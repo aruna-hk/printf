@@ -15,9 +15,11 @@ typedef struct op
 	char *op;
 	int (*f)(char *, va_list);
 } op_t;
+
 int (*get_op_func(char s))(char *, va_list);
 int _printf(const char *format, ...);
-void buffer_set(char *arr, char *buffer,char s);
+void buffer_set(char *arr, char *buffer, char s);
+void append_to_buffer(char *buffer_s, va_list ss, char p);
 void e_xit(const char *pp);
 void _strcat(char *dest, char *src);
 void _sstrcat(char *dest, char *src);
@@ -29,7 +31,7 @@ char *hex_convert(unsigned int num);
 void rev_string(char *start, int st_len);
 int _strlen(const char *s);
 void _strcpy(char *dest, char *src);
- void write_function(char *buf);
+void write_function(char *buf);
 int _strcmp(char *s1, char *s2);
 char *int_to_string(int num);
 int identifier_b(char *buffer, va_list list);
