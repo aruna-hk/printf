@@ -87,5 +87,6 @@ int identifier_o(char *buffer, va_list list)
 	ostring = uint_to_octal(oct);
 
 	_strcat(buffer, ostring);
+	free(ostring);
 	return (1);
 }
