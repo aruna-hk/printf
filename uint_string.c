@@ -23,7 +23,7 @@ char *uint_to_string(unsigned int num)
 		i++;
 	}
 	rev_string(store_num1, _strlen(store_num1));
-	ptr_ss = malloc(sizeof(char) * (_strlen(store_num1)  + 1));
+	ptr_ss = malloc(i + 1);
 	if (ptr_ss == NULL)
 		return (NULL);
 	_strcpy(ptr_ss, store_num1);
