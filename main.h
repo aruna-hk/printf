@@ -30,6 +30,7 @@ void _strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *int_to_string(int num);
 char *uint_to_octal(unsigned int number);
+int identifier_b(char *buffer, va_list list);
 int identifier_d(char *buffer, va_list list);
 int identifier_c(char *buffer, va_list list);
 int identifier_s(char *buffer, va_list list);
