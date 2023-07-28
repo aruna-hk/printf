@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* get_op_func -- find and return pointer to
+* get_op_func -- find and return pointer to--------
 * respective function to getting necessary value with va_arg-
 * @s: sign character
 * Return: pointer to operators function/NULL

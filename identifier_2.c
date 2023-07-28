@@ -18,7 +18,7 @@ int identifier_p(char *buffer, va_list list)
 		_strcat(buffer, "(nil)");
 		return (1);
 	}
-	_start = "0x7ff";
+	_start = "0x7fff";
 	_strcat(buffer, _start);
 	extension = hex_convert(address_);
 	_strcat(buffer, extension);
