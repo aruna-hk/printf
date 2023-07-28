@@ -23,12 +23,14 @@ void _sstrcat(char *dest, char *src)
 		if (((int) *src >= 0 && (int) *src <= 31) || (int) *src >= 127)
 		{
 			_strcat(dest, "\\x0");
+
 			char_num = hex_convert((unsigned int) *src);
 			change_caps_small(char_num);
 			_strcat(dest, char_num);
 		}
 		ch_num[0] = *src;
 		ch_num[1] = '\0';
+
 		_strcat(ptr, ch_num);
 		src++;
 	}
