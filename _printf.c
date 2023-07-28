@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	int (*func_ptr)(char *, va_list);
 	unsigned int len;
 
+	mybuffer[0] = '\0';
 	va_start(print, format);
 	while (*format != '\0')
 	{

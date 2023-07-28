@@ -11,6 +11,7 @@ int identifier_b(char *buffer, va_list list)
 	long int number = va_arg(list, unsigned int);
 	char *bit_space = malloc(sizeof(char) * 64);
 
+	bit_space[0] = '\0';
 	if (bit_space == NULL)
 		return (0);
 	if (number == 0)
@@ -30,5 +31,6 @@ int identifier_b(char *buffer, va_list list)
 	rev_string(bit_space, i);
 	_strcat(buffer, bit_space);
 
+	free(bit_space);
 	return (1);
 }
