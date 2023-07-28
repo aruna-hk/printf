@@ -27,9 +27,9 @@ void append_to_buffer(char *buffer_s, va_list ss, char p)
 	if (func_ptr == NULL)
 	{
 		_strcat(buffer_s, "%");
-		continue;
 	}
-	func_ptr(buffer_s, ss);
+	else
+		func_ptr(buffer_s, ss);
 }
 /**
 * _printf - printf formatted data to standard output
