@@ -4,7 +4,7 @@
 * @num: unsigned number arguement
 * Return: ptr to string/NULL
 */
-char *uint_to_string(unsigned int num)
+char *uint_to_string(unsigned long int num)
 {
 	unsigned int i = 0;
 	char *ptr_ss;

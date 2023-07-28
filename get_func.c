@@ -15,6 +15,7 @@ int (*get_op_func(char s))(char *, va_list)
 		{"u", identifier_u},
 		{"c", identifier_c},
 		{"s", identifier_s},
+		{"S", identifier_S},
 		{"x", identifier_x},
 		{"X", identifier_X},
 		{"o", identifier_o},

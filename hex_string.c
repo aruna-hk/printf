@@ -32,9 +32,9 @@ void change_caps_small(char *point)
 	{
 		c = *point;
 
-		if (c >= 'A' && c <= 'Z')
+		if (c >= 'a' && c <= 'z')
 		{
-			*point = c + ('a' - 'A');
+			*point = c + ('a' - 'Z');
 		}
 		point++;
 	}

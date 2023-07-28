@@ -58,6 +58,7 @@ int _strcmp(char *s1, char *s2)
  */
 void _strcat(char *dest, char *src)
 {
+
 	while (*dest != '\0')
 	{
 		dest++;

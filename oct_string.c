@@ -4,7 +4,7 @@
 * @number: takes unsigned interger
 * Return: pointer to string of octal
 */
-char *uint_to_octal(unsigned int number)
+char *uint_to_octal(unsigned long int number)
 {
 	char *_ptr_;
 	char *store_space = malloc(sizeof(char) * 1025);

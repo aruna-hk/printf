@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
 /**
 * buffer_set - set buffer
 * @arr: array 2
@@ -60,5 +58,7 @@ int _printf(const char *format, ...)
 		write(1, mybuffer, strlen(mybuffer));
 		free(mybuffer);
 	}
-		return (len);
+	else
+		return (-1);
+	return (len);
 }

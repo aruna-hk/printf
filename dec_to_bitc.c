@@ -8,7 +8,7 @@
 int identifier_b(char *buffer, va_list list)
 {
 	unsigned int i = 0;
-	long int number = va_arg(list, unsigned int);
+	unsigned long int number = va_arg(list, unsigned long int);
 	char *bit_space = malloc(sizeof(char) * 64);
 
 	bit_space[0] = '\0';
