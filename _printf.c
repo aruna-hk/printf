@@ -1,7 +1,19 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+/**
+* buffer_set - set buffer
+* @arr: array 2
+* @buffer:hg
+* @s:tst
+*/
+void buffer_set(char *arr, char *buffer, char s)
+{
+	arr[0] = s;
+	arr[1] = '\0';
 
+	_strcat(buffer, arr);
+}
 /**
 * _printf - printf formatted data to standard output
 * @format: 1st arguemnt
@@ -17,35 +29,36 @@ int _printf(const char *format, ...)
 
 	mybuffer[0] = '\0';
 	va_start(print, format);
-	while (*format != '\0')
+	if (format != NULL)
 	{
-		if (*format == '%')
+		while (*format != '\0')
 		{
-			format++;
 			if (*format == '%')
-				_strcat(mybuffer, "%");
+			{
+				format++;
+				if (*format == '%')
+					_strcat(mybuffer, "%");
+				else
+				{
+					func_ptr = get_op_func(*format);
+					if (func_ptr == NULL)
+					{
+						_strcat(mybuffer, "%");
+						continue;
+					}
+					func_ptr(mybuffer, print);
+				}
+				format++;
+			}
 			else
 			{
-				func_ptr = get_op_func(*format);
-				if (func_ptr == NULL)
-				{
-					exit(0);
-				}
-				func_ptr(mybuffer, print);
+				 buffer_set(ar, mybuffer, *format);
+				format++;
 			}
-			format++;
 		}
-		else
-		{
-			ar[0] = *format;
-			ar[1] = '\0';
-			_strcat(mybuffer, ar);
-			format++;
-		}
+		len = _strlen(mybuffer);
+		write(1, mybuffer, strlen(mybuffer));
+		free(mybuffer);
 	}
-
-	len = _strlen(mybuffer);
-	write(1, mybuffer, strlen(mybuffer));
-	free(mybuffer);
-	return (len);
+		return (len);
 }
