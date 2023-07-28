@@ -13,25 +13,6 @@ void buffer_set(char *arr, char *buffer, char s)
 	_strcat(buffer, arr);
 }
 /**
-* append_to_buffer -- strip of print --gets appropriate function
-* and append characters to buffer
-* @buffer_s: buffer to store character before writing to the screen
-* @ss: argument list
-* @p:format specifier
-*/
-void append_to_buffer(char *buffer_s, va_list ss, char p)
-{
-	int (*func_ptr)(char *, va_list);
-
-	func_ptr = get_op_func(p);
-	if (func_ptr == NULL)
-	{
-		_strcat(buffer_s, "%");
-	}
-	else
-		func_ptr(buffer_s, ss);
-}
-/**
 * _printf - printf formatted data to standard output
 * @format: 1st arguemnt
 * Return: string len;
@@ -41,6 +22,7 @@ int _printf(const char *format, ...)
 	char *mybuffer = malloc(sizeof(char) * 1024);
 	va_list print;
 	char ar[2];
+	int (*func_ptr)(char *, va_list);
 	unsigned int len;
 
 	mybuffer[0] = '\0';
@@ -55,7 +37,15 @@ int _printf(const char *format, ...)
 				if (*format == '%')
 					_strcat(mybuffer, "%");
 				else
-					append_to_buffer(mybuffer, print, *format);
+				{
+					func_ptr = get_op_func(*format);
+					if (func_ptr == NULL)
+					{
+						_strcat(mybuffer, "%");
+						continue;
+					}
+					func_ptr(mybuffer, print);
+				}
 				format++;
 			}
 			else
