@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		len = _strlen(mybuffer);
-		write(1, mybuffer, strlen(mybuffer));
+		write(1, mybuffer, _strlen(mybuffer));
 		free(mybuffer);
 	}
 	else
